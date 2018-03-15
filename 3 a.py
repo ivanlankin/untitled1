@@ -2,11 +2,11 @@ import pygame
 import requests
 import sys
 import os
-cords = int(input("кординаты 1 х 2 у"))
-mashtab = int(input('маштаб'))
+cords = input("кординаты 1 х 2 у").split()
+mashtab = input('маштаб').split()
 response = None
 try:
-    map_request = 'https://static-maps.yandex.ru/1.x/?spn=20.002,20.002&ll=136.063527%2C-25.691701&l=map'
+    map_request = "http://static-maps.yandex.ru/1.x/?ll="+cords[0]+","+cords[1]+"&spn="+mashtab[0]+","+mashtab[1]+"&l=map"#'https://static-maps.yandex.ru/1.x/?spn=20.002,20.002&ll='136.063527%2C-25.691701'&l=map'
     response = requests.get(map_request)
 
     if not response:
