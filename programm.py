@@ -39,10 +39,19 @@ while running:
             running = False
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_UP:
-                cords[1] = str(float(cords[1]) - 2)
+                cords[1] = str(float(cords[1]) + float(mashtab[0]))
                 print(cords[1])
+            if event.key == pygame.K_DOWN:
+                cords[1] = str(float(cords[1]) - float(mashtab[0]))
+                print(cords[1])
+            if event.key == pygame.K_RIGHT:
+                cords[0] = str(float(cords[0]) + float(mashtab[1]))
+                print(cords[0])
+            if event.key == pygame.K_LEFT:
+                cords[0] = str(float(cords[0]) - float(mashtab[1]))
+                print(cords[0])
         screen.blit(pygame.image.load(map_creat()), (0, 0))
-    #clock.tick(fps)
+    clock.tick(fps)
     pygame.display.flip()
 pygame.quit()
 os.remove(map_creat())
